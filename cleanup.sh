@@ -1,4 +1,4 @@
-!#/bin/sh
+#!/bin/bash
 echo "Going to directory..."
 sleep 5
 
