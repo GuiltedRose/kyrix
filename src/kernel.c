@@ -16,8 +16,8 @@ void terminal_put_char(int x, int y, char c, char color) {
 
 void terminal_write_char(char c, char color) {
     if(c == '\n'){
-        terminal_col = 0;
         terminal_row += 1;
+        terminal_col = 0;
         return;
     }
     terminal_put_char(terminal_col, terminal_row, c, color);
@@ -48,7 +48,7 @@ size_t strlen(const char* str) {
     return len;
 }
 
-void printf(const char* str) {
+void print(const char* str) {
     size_t len =strlen(str);
     for(int i = 0; i < len; i++) {
         terminal_write_char(str[i], 15);
@@ -62,5 +62,5 @@ void kernel_main() {
     terminal_write_char('l', 13); //l 13
     terminal_write_char('l', 12); //l 12
     terminal_write_char('o', 4); //0 4  
-    printf("\nWorld!");  
+    print("\nWorld!");  
 }
