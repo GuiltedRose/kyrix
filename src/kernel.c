@@ -1,4 +1,5 @@
 #include "kernel.h"
+#include "idt/idt.h"
 #include <stdint.h>
 #include <stddef.h>
 
@@ -55,6 +56,7 @@ void print(const char* str) {
     }
 }
 
+
 void kernel_main() {
     terminal_initialize();
     terminal_write_char('H', 2); //h 2
@@ -62,5 +64,8 @@ void kernel_main() {
     terminal_write_char('l', 13); //l 13
     terminal_write_char('l', 12); //l 12
     terminal_write_char('o', 4); //0 4  
-    print("\nWorld!");  
+    print("\nWorld! ");
+
+    // Init IDT:
+    idt_init();
 }
